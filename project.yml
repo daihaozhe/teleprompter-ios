@@ -1,0 +1,46 @@
+name: Teleprompter
+options:
+  bundleIdPrefix: com.dhz
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+
+targets:
+  Teleprompter:
+    type: application
+    platform: iOS
+    sources:
+      - path: Teleprompter
+    info:
+      path: Support/Info.plist
+      properties:
+        CFBundleDisplayName: 提词器
+        CFBundleShortVersionString: "1.0.0"
+        CFBundleVersion: "1"
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UIRequiresFullScreen: false
+        UIBackgroundModes:
+          - audio
+        NSMicrophoneUsageDescription: 用于语音跟随提词功能。
+        NSSpeechRecognitionUsageDescription: 用于语音跟随提词功能。
+        ITSAppUsesNonExemptEncryption: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.dhz.teleprompter
+        PRODUCT_NAME: Teleprompter
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGNING_REQUIRED: NO
+        CODE_SIGNING_ALLOWED: NO
+        SUPPORTS_MACCATALYST: NO
+        GENERATE_INFOPLIST_FILE: NO
