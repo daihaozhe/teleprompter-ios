@@ -59,11 +59,11 @@ final class KeepAliveAudio {
 private extension Data {
     mutating func appendUInt32(_ value: UInt32) {
         var little = value.littleEndian
-        withUnsafeBytes(of: little) { append(contentsOf: $0) }
+        Swift.withUnsafeBytes(of: little) { append(contentsOf: $0) }
     }
 
     mutating func appendUInt16(_ value: UInt16) {
         var little = value.littleEndian
-        withUnsafeBytes(of: little) { append(contentsOf: $0) }
+        Swift.withUnsafeBytes(of: little) { append(contentsOf: $0) }
     }
 }
