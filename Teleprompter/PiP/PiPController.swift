@@ -3,6 +3,7 @@ import AVKit
 import Combine
 import MediaPlayer
 import UIKit
+import SwiftUI
 
 /// 负责把预渲染好的提词视频通过系统「画中画」浮到最上层。
 /// 画中画是 iOS 上唯一允许覆盖在其它 App（包括系统相机）之上的浮层。
@@ -47,7 +48,7 @@ final class PiPController: NSObject, ObservableObject {
 
     private func configurePiP() {
         guard AVPictureInPictureController.isPictureInPictureSupported() else { return }
-        let controller = AVPictureInPictureController(playerLayer: playerLayer)
+        guard let controller = AVPictureInPictureController(playerLayer: playerLayer) else { return }
         controller.delegate = self
         controller.canStartPictureInPictureAutomaticallyFromInline = true
         pipController = controller
